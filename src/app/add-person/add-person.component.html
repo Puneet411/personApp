@@ -1,0 +1,59 @@
+
+<form #f="ngForm">
+
+
+        <label for="name" >First Name</label>
+        <input  ngModel name="name"id="name" type="text" class="form-control" #name="ngModel" required>
+        <div *ngIf="!name.valid && name.touched" class="alert alert-danger">
+          <div *ngIf="name.errors.required">First name is required</div>
+        </div>
+
+        <label for="last"> Last Name</label>
+        <input  ngModel name="last"id="last" type="text" class="form-control" #last="ngModel" required>
+        <div *ngIf="!last.valid && last.touched" class="alert alert-danger">
+           <div *ngIf="last.errors.required">Last name is required</div>
+          </div>
+
+
+        <label for="age" >Age</label>
+        <input  ngModel name="age" id="age" type="text" class="form-control" #age="ngModel" pattern="[0-9]*" required>
+        <div *ngIf="age.touched && age.invalid" class=" alert alert-danger">
+           <div *ngIf="age.errors.required">Age is required</div>
+          <div *ngIf="age.errors.pattern">Enter only numbers</div>
+        </div>
+
+
+        <label for="children" >Number of children</label>
+        <input ngModel name="children" id="children" type="text" class="form-control"  #children="ngModel"  pattern="[0-9]*">
+        <div *ngIf="children.touched && children.errors.pattern" class="alert alert-danger">Enter only numbers</div>
+
+
+        <label for="street">Address</label>
+        <input ngModel name="address" id="street" type="text" class="form-control" #address="ngModel" required>
+       <div *ngIf="address.invalid && address.touched"  class="alert alert-danger">
+         <div *ngIf="address.errors.required" class="alert alert-danger">Address is required</div>
+       </div>
+
+        <label for="home">Home phone </label>
+        <input ngModel name="home" id="home"  type="text" class="form-control" #home="ngModel" pattern="[0-9]*">
+         <div *ngIf="home.touched && home.errors.pattern"  class="alert alert-danger">Enter only numbers</div>
+
+
+        <label for="cell">Cell phone</label>
+        <input  ngModel name="cell" id="cell" type="text"class="form-control" #cell="ngModel" pattern="[0-9]*">
+        <div *ngIf="cell.touched && cell.errors.pattern"  class="alert alert-danger">Enter only numbers</div>
+
+
+        <label for="office">Office phone</label>
+        <input ngModel name="office" id="office" type="text" class="form-control"  #office="ngModel" pattern="[0-9]*">
+        <div *ngIf="office.touched && office.errors.pattern"  class="alert alert-danger">Enter only numbers</div>
+
+       <button class="btn btn-primary"
+              routerLink="/display"
+               type="button"
+               (click)="create(name.value,last.value,age.value,children.value,address.value,home.value,cell.value,office.value)"
+       >Add new person</button>
+
+
+</form>
+

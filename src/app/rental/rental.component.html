@@ -1,0 +1,16 @@
+
+   <div class =container>
+     <br>
+     <label for="house"><strong>House address</strong></label>
+    <input id="house" class="form-control" #house>
+
+     <label for="date"><strong>Buying date</strong></label>
+    <input id="date" class="form-control" #date>
+
+     <br>
+    <button class="btn btn-success"
+            (click)="addRental(house.value,date.value)"
+            [routerLink]="['/rental-display',this.result]"
+    >Add rental property</button>
+   </div>
+

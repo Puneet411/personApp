@@ -1,0 +1,42 @@
+<h1>List of persons</h1>
+
+
+<input class="form-control" type="text" placeholder="Enter name phone,number or address to search for"
+       #searchText (keyup)="filter(searchText.value)">
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Firstname</th>
+    <th scope="col">Lastname</th>
+    <th scope="col">Age</th>
+    <th scope="col">Address</th>
+    <th scope="col">Number of children</th>
+    <th scope="col">Home number</th>
+    <th scope="col">cell number</th>
+    <th scope="col">Office number</th>
+    <th></th>
+    <th></th>
+
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor = "let i of filteredPerson">
+    <td>{{i.val.name}}</td>
+    <td>{{i.key}}</td>
+    <td>{{i.val.age}}</td>
+    <td>{{i.val.address}}</td>
+    <td>{{i.val.children}}</td>
+    <td>{{i.val.home}}</td>
+    <td>{{i.val.cell}}</td>
+    <td>{{i.val.office}}</td>
+    <td><a [routerLink]="['/edit',i.key]">Add rental property</a></td>
+    <td><a [routerLink]="['/rental-display',i.key]">View rental properties</a></td>
+
+  </tr>
+
+  </tbody>
+</table>
+
