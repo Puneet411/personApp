@@ -13,14 +13,14 @@ import {Link} from './models/link';
 export class PersonService {
 rental:[]=[];
 person:Person[]=[];
-map = new Map();  // creating map object to be used as intermediate storage
+map = new Map();  // creating map object
 
   constructor(private db:AngularFireDatabase) {}
     getMap(){   // method which returns map
     return this.map;}
 
 
-  create(name1,last1,age1,children1,address1,home1,cell1,office1){   // method for creating new user info
+  create(name1,last1,age1,children1,address1,home1,cell1,office1){   // method for creating new user 
     this.map.set(last1,{name:name1,age:age1,children:children1,address:address1,home:home1,cell:cell1,office:office1}); // this info is added to map
     this.db.object('/person/'+ last1).set({    // here user info is stored into firebase.
       'name':name1,
