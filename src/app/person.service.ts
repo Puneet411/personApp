@@ -16,7 +16,7 @@ person:Person[]=[];
 map = new Map();  // creating map object to be used as intermediate storage
 
   constructor(private db:AngularFireDatabase) {}
-    getMap(){   // method which returns map ( which is intermediate storage for this app)
+    getMap(){   // method which returns map
     return this.map;}
 
 
